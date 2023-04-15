@@ -1,0 +1,105 @@
+@mixin flex($jc: center, $fw: wrap) {
+    display: flex;
+    justify-content: $jc;
+    flex-wrap: $fw;
+}
+
+.continents {
+    @include flex();
+    background-image: url(../img/map.jpg);
+    background-size: cover;
+    width: 1118px;
+    height: 752px;
+    color: white;
+    .continent {
+        @include flex();
+        &__name {
+            @include flex();
+            width: 100%;
+            height: 25%;
+            margin-top: 15px;
+        }
+        &__america {
+            @include flex();
+            flex-wrap: wrap;
+            width: $continentwh;
+            height: 740px;
+            background-color:rgba(14,79,126,0.7);
+        }
+        &__descr {
+            @include flex(flex-start);
+            position: relative;
+            bottom: 50px;
+            left: 0;
+            align-items: flex-start;
+            width: 324px;
+            height: 262px;
+            background-color: rgba(0,0,0,0.3);
+            &.usa {
+                position: relative;
+                bottom: 280px;
+            }
+            .countries {
+                @include flex(flex-start);
+                flex-direction: row;
+                .town {
+                    &-flag {
+                        width: 57px;
+                        height: 35px;
+                        margin: 0 10px 15px 17px;
+                    }
+                    &-name {
+                        @include flex(flex-start);
+                        margin-top: 10px;
+                        width: 70%;
+                    }
+                }
+            }
+            .country {
+                &__flag {
+                    height: 62px;
+                    width: 100px;
+                    margin-right: 13px;
+                }
+                &__name {
+                    width: 50%;
+                    margin-top: 15px;
+                }
+                &__cities {
+                    width: 100%;
+                    padding: 34px 0 23px 17px;
+                }
+            }
+        }
+        &__europe {
+            @include flex();
+            height: $continentwh;
+            width: $continentwh;
+            background-color:rgba(125,52,81,0.7);
+        }
+        &__asia {
+            @include flex();
+            height: $continentwh;
+            width: $continentwh;
+            background-color:rgba(166,25,21,0.7);
+        }
+        &__africa {
+            @include flex();
+            height: $continentwh;
+            width: $continentwh;
+            background-color:rgba(241,229,8,0.7);
+            position: relative;
+            bottom: $continentwh;
+            left: 185px;
+        }
+        &__australia {
+            @include flex();
+            height: $continentwh;
+            width: $continentwh;
+            background-color:rgba(196,145,70,0.7);
+            position: relative;
+            bottom: $continentwh;
+            left: 185px;
+        }
+    }
+}
